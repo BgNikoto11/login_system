@@ -1,33 +1,38 @@
+<?php
+    session_start();
+    if(isset($_SESSION['username'])){       
+        function displayStatus(){
+            global $username;
+            $username = $_SESSION['username'];
+
+            echo"<h3>Welcome, $username!</h3>";
+            echo"<p>Click <a href='../../back_end/logout-handler.inc.php'>here</a> to logout</p>";
+        }      
+    }
+    else{
+       function displayStatus(){
+        echo"<h3>Access denied!</h3>";
+        echo"<p>Click <a href='login.php'>here</a> to login</p>";
+        echo"<p>Don't have an account? <a href=''>Register</a></p>";
+       }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Home</title>
 </head>
+
 <body>
-    <?php
-    if(isset($_GET['error'])){
-        if($_GET['error'] == 'emptyfields'){
-            echo '<p style="color: red;">Please fill in all fields.</p>';
-        }
-        elseif($_GET['error'] == 'invalidlogin'){
-            echo '<p style="color: red;">Invalid username or password.</p>';
-        }
-    }
-    ?>
+    <div class="status-panel">
+        <?php
+        displayStatus();
+        ?>
 
-    <form id="login-form" method="post" action="../../back_end/login-form-handler.inc.php">
-
-        <label for="username">Username</label><br>
-        <input type="text" name="username"><br>
-
-        <label for="password">Password</label><br>
-        <input type="text" name="password"><br>
-
-        <input type="submit" value="Login">
-
-    </form>
-    
+    </div>
 </body>
+
 </html>

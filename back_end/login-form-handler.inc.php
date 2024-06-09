@@ -7,8 +7,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $password = $_POST["password"];
 
     if(empty($username) || empty($password)){
-        header("Location: ../front_end/markup/index.php?error=emptyfields");
-        echo "Invalid username or password.";
+        header("Location: ../front_end/markup/login.php?error=emptyfields");
         die();
 
     }
@@ -29,16 +28,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
             if($password == $user['user_password']){
                 $_SESSION['username'] = $user['user_name'];
-                header("Location: ../front_end/markup/welcome.php");
+                header("Location: ../front_end/markup/index.php");
                 die();
             }
             else{
-                header("Location: ../front_end/markup/index.php?error=invalidlogin");
+                header("Location: ../front_end/markup/login.php?error=invalidlogin");
                 die();
             }
         }
         else{
-            header("Location: ../front_end/markup/index.php?error=invalidlogin");
+            header("Location: ../front_end/markup/login.php?error=invalidlogin");
             die();
         }
 
@@ -46,9 +45,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     catch (PDOException $e){
         die("Query failed:" . $e->getMessage());
     }
-
-    header("Location: ../front_end/markup/index.php");
+    header("Location: ../front_end/markup/login.php");
 }
 else{
-    header("Location: ../front_end/markup/index.php");
+    header("Location: ../front_end/markup/login.php");
 }
