@@ -17,6 +17,11 @@
             echo '<p style="color: red;">Invalid username or password.</p>';
         }
     }
+    if(isset($_GET['info'])){
+        if($_GET['info'] == 'createdaccount'){
+            echo '<p style="color: green;">Successfully created an account!</p>';
+        }
+    }
     ?>
 
     <form id="login-form" method="post" action="../../back_end/login-form-handler.inc.php">

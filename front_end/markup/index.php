@@ -13,7 +13,7 @@
        function displayStatus(){
         echo"<h3>Access denied!</h3>";
         echo"<p>Click <a href='login.php'>here</a> to login</p>";
-        echo"<p>Don't have an account? <a href=''>Register</a></p>";
+        echo"<p>Don't have an account? <a href='register.php'>Register here</a></p>";
        }
     }
 ?>
