@@ -13,7 +13,7 @@
        function displayStatus(){
         echo"<h3>Access denied!</h3>";
         echo"<p>Click <a href='login.php'>here</a> to login</p>";
-        echo"<p>Don't have an account? <a href='register.php'>Register here</a></p>";
+        echo"<p>Click <a href='register.php'>here</a> to register</p>";
        }
     }
 ?>
@@ -24,6 +24,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link rel="stylesheet"href="../style/style.css">
 </head>
 
 <body>
